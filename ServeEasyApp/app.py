@@ -31,7 +31,12 @@ app.config['MYSQL_DB'] = db['mysql_db']
 mysql = MySQL(app)
 
 
-user_details = ()
+user_details=()
+@app.route('/')
+def home2():
+    return redirect(url_for('home'))
+    
+
 def ifUsernameNotAvailable(user_id):
     cursor = mysql.connection.cursor()
     query = "select user_id from user where user_id = %s"
